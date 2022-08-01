@@ -43,6 +43,10 @@
 
                     </tbody>
                 </table>
+                <form method="post" action="{{ url('/logout') }}" style="display:inline">
+                    @csrf
+                    <button type='submit' class="btn btn-secondary ">Logout</button>
+                </form>
             </div>
         </div>
     </div>
