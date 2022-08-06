@@ -48,4 +48,11 @@ class ContactController extends Controller
         }
         return redirect('/admin/view-messages');
     }
+
+    public function deleteMultipleMessages(Request $request)
+    {
+        $ids = $request->get('selected');
+        Contact::whereIn('id', $ids)->delete();
+        return response("Selected messages have been deleted successfully", 200);
+    }
 }

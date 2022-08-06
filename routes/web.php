@@ -15,6 +15,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("/admin/view-messages", [ContactController::class, 'listMessages']);
     Route::get("/admin/messages/{id}", [ContactController::class, 'message_details']);
     Route::delete("/admin/messages/{id}/delete", [ContactController::class, 'delete_message']);
+    Route::post("/admin/messages/multiple-delete", [ContactController::class, 'deleteMultipleMessages'])->name('multiple-delete');
 
     Route::post("/logout", [LoginController::class, 'logout']);
 });
