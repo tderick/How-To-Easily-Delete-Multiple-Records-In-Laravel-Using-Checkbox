@@ -53,6 +53,11 @@
                     }
                 })
             });
+
+            $(".delete-message").on("submit", function(e) {
+                e.preventDefault();
+            });
+
         });
     </script>
 </head>
@@ -85,8 +90,8 @@
                                     <a href="{{ url('/admin/messages/' . $message->id) }}"
                                         class="btn btn-primary btn-sm">Details</a>
 
-                                    <form method="post"
-                                        action="{{ url('/admin/messages/' . $message->id . '/delete') }}"
+                                    <form method="post" class="delete-message"
+                                        data-route="{{ url('/admin/messages/' . $message->id . '/delete') }}"
                                         style="display:inline">
 
                                         {{ method_field('DELETE') }}
